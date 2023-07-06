@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const db = require("./connection");
 
-const Reservation = mongoose.model("user", {
+const Reservation = mongoose.model("inquiry", {
   userId: String, // User._id
   inquiry: String,
   checkIn: String,
