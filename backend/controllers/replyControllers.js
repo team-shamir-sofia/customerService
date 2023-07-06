@@ -7,8 +7,10 @@ const sendReply = async (req, res) => {
 };
 
 //for the user to get a reply
-const getReply = async (req, res) => {
-  const replyMsg = await Reply.find();
+const getReplyByUserId = async (req, res) => {
+  const replyMsg = await Reply.find({
+    userId: req.params.userId,
+  });
   res.send(replyMsg);
 };
 
@@ -18,4 +20,4 @@ const deleteReply = async (req, res) => {
   res.send({ msg: "deleted" });
 };
 
-module.exports = { sendReply, getReply, deleteReply };
+module.exports = { sendReply, getReplyByUserId, deleteReply };
