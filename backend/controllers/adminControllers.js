@@ -2,6 +2,26 @@ const Admin = require("../modules/adminSchema");
 const bcrypt = require("bcrypt");
 var jwt = require("jsonwebtoken");
 
+//sign up
+const adminSignup = async (req, res) => {
+  const checkAdmin = await User.findOne({ username: req.body.username });
+  if (checkAdmin) {
+    res.send({ msg: "You already have an account" });
+    return;
+  }
+  bcrypt.genSalt(10, function (err, salt) {
+    bcrypt.hash(req.body.password, salt, async function (err, hash) {
+      const admin = {
+        username: String,
+        password: hash,
+      };
+      const newAdmin = await Admin.create(admin);
+      var token = jwt.sign({ id: newAdmin._id }, "greenfield");
+      res.send({ token });
+    });
+  });
+};
+
 //log in
 const adminLogin = async (req, res) => {
   const admin = await Admin.findOne({ username: req.body.username });
@@ -42,6 +62,7 @@ const adminVerify = async (req, res) => {
 };
 
 module.exports = {
+  adminSignup,
   adminLogin,
   adminVerify,
 };
