@@ -6,7 +6,7 @@ const userReservation = async (req, res) => {
   res.send({ msg: "send successfully" });
 };
 
-//get the reservations for the admin
+//get notification for the reservation for the admin
 const getReservation = async (req, res) => {
   const reservation = await Reservation.find();
   res.send(reservation);

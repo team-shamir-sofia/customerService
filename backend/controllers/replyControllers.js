@@ -14,6 +14,13 @@ const getReplyByUserId = async (req, res) => {
   res.send(replyMsg);
 };
 
+/*async function getReplyByUserId  (req,res){
+  const replyMsg = await Reply.find({
+    userId: req.params.userId,
+  });
+  res.send(replyMsg);
+}*/
+
 //for the user to delete a reply, not sure if we are using this one
 const deleteReply = async (req, res) => {
   await Reply.deleteOne({ _id: req.params.id });
