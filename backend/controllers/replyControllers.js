@@ -28,3 +28,7 @@ const deleteReply = async (req, res) => {
 };
 
 module.exports = { sendReply, getReplyByUserId, deleteReply };
+
+//{
+//  userId: req.params.userId,
+//}

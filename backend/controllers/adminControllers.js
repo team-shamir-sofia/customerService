@@ -4,7 +4,7 @@ var jwt = require("jsonwebtoken");
 
 //sign up
 const adminSignup = async (req, res) => {
-  const checkAdmin = await User.findOne({ username: req.body.username });
+  const checkAdmin = await Admin.findOne({ username: req.body.username });
   if (checkAdmin) {
     res.send({ msg: "You already have an account" });
     return;
@@ -12,7 +12,7 @@ const adminSignup = async (req, res) => {
   bcrypt.genSalt(10, function (err, salt) {
     bcrypt.hash(req.body.password, salt, async function (err, hash) {
       const admin = {
-        username: String,
+        username: req.body.username,
         password: hash,
       };
       const newAdmin = await Admin.create(admin);
