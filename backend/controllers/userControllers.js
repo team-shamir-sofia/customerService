@@ -12,9 +12,10 @@ const userSignup = async (req, res) => {
   bcrypt.genSalt(10, function (err, salt) {
     bcrypt.hash(req.body.password, salt, async function (err, hash) {
       const user = {
-        username: req.body.email,
+
+        username: req.body.username,
         email: req.body.email,
-        phone: String,
+        phone: req.body.phone,
         password: hash,
       };
       const newUser = await User.create(user);

@@ -10,7 +10,6 @@ require("./modules/connection");
 app.use(express.json());
 
 
-
 app.use(cors({ origin: "*" }));
 
 app.use("/", userRouter);
@@ -19,5 +18,6 @@ app.use("/", replyRouter);
 app.use("/", reservationRouter);
 
 app.listen(8000, () => {
-  console.log("Server is running on 8000....");
+ console.log("Server is running on 8000....");
+
 });

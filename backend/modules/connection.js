@@ -1,3 +1,4 @@
+
 // const mongoose = require("mongoose");
 // const db = mongoose.connect(
 //   "mongodb+srv://sofiailiana:sofia@cluster0.z3lhgfp.mongodb.net/customerService?retryWrites=true&w=majority"
@@ -7,6 +8,7 @@
 
 
 const mongoose = require("mongoose");
+
 
 const connectionParams = {
   useNewUrlParser: true,
