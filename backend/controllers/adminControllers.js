@@ -16,7 +16,7 @@ const adminSignup = async (req, res) => {
         password: hash,
       };
       const newAdmin = await Admin.create(admin);
-      var token = jwt.sign({ id: newAdmin._id }, "greenfield");
+      const token = jwt.sign({ id: newAdmin._id }, "greenfield");
       res.send({ token });
     });
   });
@@ -28,7 +28,7 @@ const adminLogin = async (req, res) => {
   if (admin) {
     bcrypt.compare(req.body.password, admin.password, function (err, result) {
       if (result) {
-        var token = jwt.sign({ id: admin._id }, "greenfield");
+        const token = jwt.sign({ id: admin._id }, "greenfield");
         res.send({ token });
       } else {
         res.send({ msg: "wrong password" });

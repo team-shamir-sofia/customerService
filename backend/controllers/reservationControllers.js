@@ -12,10 +12,11 @@ const getReservation = async (req, res) => {
   res.send(reservation);
 };
 
-//get reservation from check in date for admin
+//get reservation by check in date for admin
 const getByCheckInDate = async (req, res) => {
+  const { checkIn } = req.query;
   const reservation = await Reservation.find({
-    checkIn: req.params.checkIn,
+    checkIn
   });
   res.send(reservation);
 };
