@@ -20,3 +20,6 @@ router.delete(
 router.put("/admin/comment/inquiry/:id", reservationController.addComment);
 
 module.exports = router;
+
+
+

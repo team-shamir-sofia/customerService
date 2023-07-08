@@ -16,7 +16,7 @@ const getReservation = async (req, res) => {
 const getByCheckInDate = async (req, res) => {
   const { checkIn } = req.query;
   const reservation = await Reservation.find({
-    checkIn
+    checkIn: req.params.checkIn,
   });
   res.send(reservation);
 };

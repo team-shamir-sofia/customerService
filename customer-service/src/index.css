@@ -3,7 +3,9 @@ body {
   height: 100%;
 }
 
+
 .App {
+
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,4 +18,11 @@ body {
   background-color: #282c34;
   color: white;
   font-size: 15px;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+
 }
