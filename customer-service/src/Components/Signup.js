@@ -14,7 +14,6 @@ function Signup() {
   }
 
   function signup() {
-
     axios
       .post("http://localhost:8000/user/signup", {
         username,
@@ -34,13 +33,13 @@ function Signup() {
         }
       })
       .catch((error) => {
-
         console.log(error);
       });
   }
 
   return (
     <div className="App">
+      <h1>Customer Hub</h1>
       <input
         type="text"
         placeholder="username"
@@ -77,22 +76,21 @@ function Signup() {
         Signup
       </button>
 
-
       <p>
         You already have an account? {""}
-        <button
+        <a
           href="/"
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
             toLogin();
           }}
         >
           Login
-        </button>{" "}
+        </a>{" "}
         {""}
       </p>
     </div>
   );
-
 }
 
 export default Signup;

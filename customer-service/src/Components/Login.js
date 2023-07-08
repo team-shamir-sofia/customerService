@@ -17,28 +17,26 @@ function Login() {
     navigate("/signup");
   }
 
-
-    function login() {
-        axios
-          .post("http://localhost:8000/user/login", {
-                 email,
-                 password,
-            })
-          .then(({ data }) => {
-            console.log(data);
-            if (data.token) {
-                localStorage.setItem("token", data.token);
-                navigate("/userinput")
-            } else {
-                alert(data.msg)
-            }
-            })
-            .catch((error) => {
-                console.log(error);
-                // alert(" An error occurred. Please try later");
-            });
-    };
-
+  function login() {
+    axios
+      .post("http://localhost:8000/user/login", {
+        email,
+        password,
+      })
+      .then(({ data }) => {
+        console.log(data);
+        if (data.token) {
+          localStorage.setItem("token", data.token);
+          navigate("/userinput");
+        } else {
+          alert(data.msg);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        // alert(" An error occurred. Please try later");
+      });
+  }
 
   return (
     <div className="App">
@@ -59,8 +57,12 @@ function Login() {
       />
       <button
         onClick={() => {
-          console.log(email);
-          login();
+          if (email && password) {
+            console.log(email);
+            login();
+          } else {
+            alert("Enter email and password");
+          }
         }}
       >
         Login
