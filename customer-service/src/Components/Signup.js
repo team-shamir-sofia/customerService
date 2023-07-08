@@ -4,8 +4,10 @@ import axios from "axios";
 
 function Signup() {
   const navigate = useNavigate();
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
 
   function toLogin() {
     navigate("/");
@@ -13,12 +15,14 @@ function Signup() {
 
   function signup() {
     axios.post("http://localhost:8000/user/signup", {
+      username,
       email,
       password,
+      phone,
     }).then(( response ) => {
       if (response.data.token) {
         localStorage.setItem("token", response.data.token);
-        navigate("/");
+        navigate("/userinput");
         console.log("Token Saved in local storage");
         // console.log(response.data.token);
         // console.log(data.token);
@@ -36,8 +40,10 @@ function Signup() {
 return (
   <div className="App">
 
+    <input type="text" placeholder="username" onChange={(e)=>{setUsername(e.target.value)}}/>
     <input type="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
     <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/>
+    <input type="text" placeholder="phone" onChange={(e)=>{setPhone(e.target.value)}}/>
     <button onClick={()=> {signup()}}>Signup</button>
 
     <p>
