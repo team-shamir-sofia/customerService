@@ -14,10 +14,13 @@ body {
   height: 100%;
 }
 
+<<<<<<< HEAD
 body {
   margin: 0;
   height: 100%;
 }
+=======
+>>>>>>> 4a05ab8279bcb40a7c84fcb924b769685f5e8922
 
 .App {
 
@@ -33,11 +36,21 @@ body {
   background-color: #282c34;
   color: white;
   font-size: 15px;
+<<<<<<< HEAD
 }
 
 body {
   margin: 0;
   height: 100%;
+=======
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+
+>>>>>>> 4a05ab8279bcb40a7c84fcb924b769685f5e8922
 }
 
 .App {
