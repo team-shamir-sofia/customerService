@@ -1,9 +1,15 @@
+
+
+import React from "react";
+// import { useState } from "react";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./Components/Login";
-import Signup from "./Components/Signup";
+import Signup from "./Components/Login";
 import AdminLogin from "./Components/AdminLogin";
 import AdminPage from "./Components/AdminPage";
 import Userinput from "./Components/UserInput";
+
 
 function App() {
   return (
@@ -15,6 +21,7 @@ function App() {
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/adminpage" element={<AdminPage />} />
           <Route path="/userinput" element={<Userinput />} />
+
         </Routes>
       </Router>
     </div>

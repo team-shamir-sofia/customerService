@@ -1,8 +1,26 @@
 body {
   margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+body {
+  margin: 0;
   height: 100%;
 }
 
+<<<<<<< HEAD
+body {
+  margin: 0;
+  height: 100%;
+}
+=======
+>>>>>>> 4a05ab8279bcb40a7c84fcb924b769685f5e8922
 
 .App {
 
@@ -18,6 +36,13 @@ body {
   background-color: #282c34;
   color: white;
   font-size: 15px;
+<<<<<<< HEAD
+}
+
+body {
+  margin: 0;
+  height: 100%;
+=======
 
 }
 
@@ -25,4 +50,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 
+>>>>>>> 4a05ab8279bcb40a7c84fcb924b769685f5e8922
 }
+
+.App {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.App {
+  text-align: center;
+  background-color: #282c34;
+  color: white;
+  font-size: 15px;
+}
+
+

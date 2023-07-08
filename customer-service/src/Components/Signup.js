@@ -14,6 +14,7 @@ function Signup() {
   }
 
   function signup() {
+
     axios
       .post("http://localhost:8000/user/signup", {
         username,
@@ -33,6 +34,7 @@ function Signup() {
         }
       })
       .catch((error) => {
+
         console.log(error);
       });
   }
@@ -75,6 +77,7 @@ function Signup() {
         Signup
       </button>
 
+
       <p>
         You already have an account? {""}
         <button
@@ -89,6 +92,7 @@ function Signup() {
       </p>
     </div>
   );
+
 }
 
 export default Signup;
