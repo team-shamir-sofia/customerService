@@ -1,5 +1,6 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AdminPage() {
   const [visibleReplyText, setVisibleReplyText] = useState(false);

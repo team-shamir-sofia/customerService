@@ -1,21 +1,22 @@
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Login() {
-    const navigate = useNavigate();
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    // useEffect(() => {
-    //   if (localStorage.getItem("token")) {
-    //     navigate("/user");
-    //   }
-    // }, []);
+  // useEffect(() => {
+  //  if (localStorage.getItem("token")) {
+  //   navigate("/user");
+  // }
+  //}, []);
 
-    function toSignup() {
-        navigate("/signup");
-    }
+  function toSignup() {
+    navigate("/signup");
+  }
+
 
     function login() {
         axios
@@ -38,26 +39,48 @@ function Login() {
             });
     };
 
-    return (
-        <div className="App">
 
-          <h1>Customer Hub</h1>
-          <input type="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
-          <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/>
-          <button onClick={()=> {login()}}>Login</button>
+  return (
+    <div className="App">
+      <h1>Customer Hub</h1>
+      <input
+        type="email"
+        placeholder="email"
+        onChange={(e) => {
+          setEmail(e.target.value);
+        }}
+      />
+      <input
+        type="password"
+        placeholder="password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          console.log(email);
+          login();
+        }}
+      >
+        Login
+      </button>
 
-          <p>
-            Don't have an account? {""}
-            <a href="/signup" onClick={(e)=>{
-                e.preventDefault();
-                toSignup()
-                }}>
-                Signup
-            </a> {""}
-          </p>
-
-        </div>
-      );
-};
+      <p>
+        Don't have an account? {""}
+        <a
+          href="/signup"
+          onClick={(e) => {
+            e.preventDefault();
+            toSignup();
+          }}
+        >
+          Signup
+        </a>{" "}
+        {""}
+      </p>
+    </div>
+  );
+}
 
 export default Login;
