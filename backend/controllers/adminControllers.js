@@ -1,6 +1,6 @@
 const Admin = require("../modules/adminSchema");
 const bcrypt = require("bcrypt");
-var jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
 
 //sign up
 const adminSignup = async (req, res) => {

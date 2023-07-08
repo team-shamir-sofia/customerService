@@ -27,7 +27,7 @@ function Login() {
             console.log(data);
             if (data.token) {
                 localStorage.setItem("token", data.token);
-                navigate("/user")
+                navigate("/userinput")
             } else {
                 alert(data.msg)
             }
