@@ -15,17 +15,21 @@ function Signup() {
     axios.post("http://localhost:8000/user/signup", {
       email,
       password,
-    }).then(({ data }) => {
-      if (data.token) {
-        localStorage.setItem("token", data.token);
-        navigate("/profile");
-        console.log(data);
+    }).then(( response ) => {
+      if (response.data.token) {
+        localStorage.setItem("token", response.data.token);
+        navigate("/");
+        console.log("Token Saved in local storage");
+        // console.log(response.data.token);
         // console.log(data.token);
 
       } else {
-        alert(data.msg);
+        alert(`Error ${response.status}: ${response.message}`);
       }
     })
+    .catch((error) => {
+        console.log(error);
+      });
   }
 
 
@@ -37,14 +41,14 @@ return (
     <button onClick={()=> {signup()}}>Signup</button>
 
     <p>
-      You already have an account
+      You already have an account? {""}
       <button href='/'
     onClick={()=> {
       toLogin()
       }}
-      >Login</button>
+      >Login</button> {""}
     </p>
-    
+
   </div>
 )
 }

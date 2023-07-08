@@ -31,7 +31,7 @@ const userLogin = async (req, res) => {
   if (user) {
     bcrypt.compare(req.body.password, user.password, function (err, result) {
       if (result) {
-        var token = jwt.sign({ id: user._id }, "greenfield");
+        const token = jwt.sign({ id: user._id }, "greenfield");
         res.send({ token });
       } else {
         res.send({ msg: "wrong password" });

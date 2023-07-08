@@ -7,13 +7,19 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
+    // useEffect(() => {
+    //   if (localStorage.getItem("token")) {
+    //     navigate("/user");
+    //   }
+    // }, []);
+
     function toSignup() {
-        navigate("/Signup");
+        navigate("/signup");
     }
 
     function login() {
         axios
-          .post("http://localhost:8000/login", {
+          .post("http://localhost:8000/user/login", {
                  email,
                  password,
             })
@@ -28,7 +34,7 @@ function Login() {
             })
             .catch((error) => {
                 console.log(error);
-                alert(" An error occurred. Please try later");
+                // alert(" An error occurred. Please try later");
             });
     };
 
@@ -41,13 +47,13 @@ function Login() {
           <button onClick={()=> {login()}}>Login</button>
 
           <p>
-            Don't have an account?
+            Don't have an account? {""}
             <a href="/signup" onClick={(e)=>{
                 e.preventDefault();
                 toSignup()
                 }}>
                 Signup
-            </a>
+            </a> {""}
           </p>
 
         </div>
