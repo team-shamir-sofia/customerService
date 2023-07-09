@@ -26,8 +26,6 @@ function Signup() {
           localStorage.setItem("token", response.data.token);
           navigate("/userinput");
           console.log("Token Saved in local storage");
-          // console.log(response.data.token);
-          // console.log(data.token);
         } else {
           alert(`Error ${response.status}: ${response.message}`);
         }

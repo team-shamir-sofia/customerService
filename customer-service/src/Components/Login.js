@@ -7,35 +7,32 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // useEffect(() => {
-  //  if (localStorage.getItem("token")) {
-  //   navigate("/user");
-  // }
-  //}, []);
-
   function toSignup() {
     navigate("/signup");
   }
 
   function login() {
-    axios
-      .post("http://localhost:8000/user/login", {
-        email,
-        password,
-      })
-      .then(({ data }) => {
-        console.log(data);
-        if (data.token) {
-          localStorage.setItem("token", data.token);
-          navigate("/userinput");
-        } else {
-          alert(data.msg);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        // alert(" An error occurred. Please try later");
-      });
+    if (email && password) {
+      axios
+        .post("http://localhost:8000/user/login", {
+          email,
+          password,
+        })
+        .then(({ data }) => {
+          console.log(data);
+          if (data.token) {
+            localStorage.setItem("token", data.token);
+            navigate("/userinput");
+          } else {
+            alert(data.msg);
+          }
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    } else {
+      alert("Enter email and password");
+    }
   }
 
   return (
@@ -66,9 +63,6 @@ function Login() {
         />
       </div>
       <br />
-
-      {/* <input type="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
-          <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/> */}
       <button
         onClick={() => {
           login();
