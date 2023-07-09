@@ -41,64 +41,57 @@ function Login() {
   return (
     <div className="App">
       <h1>Customer Hub</h1>
-      <input
-        type="email"
-        placeholder="email"
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
+
+      <div className="input-container-one">
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          placeholder="email"
+          onChange={(e) => {
+            setEmail(e.target.value);
+          }}
+        />
+      </div>
+      <br />
+      <div className="input-container-one">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          id="password"
+          placeholder="password"
+          onChange={(e) => {
+            setPassword(e.target.value);
+          }}
+        />
+      </div>
+      <br />
+
+      {/* <input type="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
+          <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/> */}
       <button
         onClick={() => {
-          if (email && password) {
-            console.log(email);
-            login();
-          } else {
-            alert("Enter email and password");
-          }
+          login();
         }}
       >
         Login
       </button>
 
-
-          <h1>Customer Hub</h1>
-
-          <div className="input-container-one" >
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
-          </div>
-          <br />
-          <div className="input-container-one" >
-            <label htmlFor="password">Password</label>
-          <input type="password" id="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/>
-          </div>
-          <br />
-
-          {/* <input type="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
-          <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/> */}
-          <button onClick={()=> {login()}}>Login</button>
-
-          <p>
-            Don't have an account? {""}
-            <a href="/signup" onClick={(e)=>{
-                e.preventDefault();
-                toSignup()
-                }}>
-                Signup
-            </a> {""}
-          </p>
-
-        </div>
-      );
-};
-
+      <p>
+        Don't have an account? {""}
+        <a
+          href="/signup"
+          onClick={(e) => {
+            e.preventDefault();
+            toSignup();
+          }}
+        >
+          Signup
+        </a>{" "}
+        {""}
+      </p>
+    </div>
+  );
+}
 
 export default Login;

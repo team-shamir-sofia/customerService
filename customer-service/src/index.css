@@ -7,14 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
-
 body {
   margin: 0;
   height: 100%;
 }
-
 
 .App {
   display: flex;
@@ -29,7 +25,6 @@ body {
   background-color: #54617b;
   color: white;
   font-size: 15px;
-
 }
 
 body {
@@ -40,15 +35,12 @@ body {
 
 body {
   height: 100%;
-
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-
 
 textarea {
   width: 100%;
@@ -62,13 +54,9 @@ textarea {
   resize: none;
 }
 
-.input-container {
-
 .App {
-
   display: flex;
   flex-direction: column;
-
 }
 
 .input-container-one {
@@ -77,10 +65,6 @@ textarea {
   flex-direction: column;
   width: 500px;
 }
-
-
-
-
 
 /* .input-container-one label {
  margin-bottom: 5px;
@@ -91,4 +75,3 @@ textarea {
 .input-container textarea {
  margin-bottom: 10px;
 } */
-
