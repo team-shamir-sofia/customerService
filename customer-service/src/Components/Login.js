@@ -68,21 +68,37 @@ function Login() {
         Login
       </button>
 
-      <p>
-        Don't have an account? {""}
-        <a
-          href="/signup"
-          onClick={(e) => {
-            e.preventDefault();
-            toSignup();
-          }}
-        >
-          Signup
-        </a>{" "}
-        {""}
-      </p>
-    </div>
-  );
-}
+
+          <h1>Customer Hub</h1>
+
+          <div className="input-container-one" >
+          <label htmlFor="email">Email</label>
+          <input type="email" id="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
+          </div>
+          <br />
+          <div className="input-container-one" >
+            <label htmlFor="password">Password</label>
+          <input type="password" id="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/>
+          </div>
+          <br />
+
+          {/* <input type="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
+          <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/> */}
+          <button onClick={()=> {login()}}>Login</button>
+
+          <p>
+            Don't have an account? {""}
+            <a href="/signup" onClick={(e)=>{
+                e.preventDefault();
+                toSignup()
+                }}>
+                Signup
+            </a> {""}
+          </p>
+
+        </div>
+      );
+};
+
 
 export default Login;
