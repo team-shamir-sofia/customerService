@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 
 function AdminLogin() {
+
     const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -41,5 +42,6 @@ function AdminLogin() {
       );
 
 };
+
 
 export default AdminLogin;
