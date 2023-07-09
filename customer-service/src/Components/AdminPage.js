@@ -1,13 +1,54 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function AdminPage() {
   const [visibleReplyText, setVisibleReplyText] = useState(false);
   const [visibleCommentText, setVisibleCommentText] = useState(false);
+  const [admin, setAdmin] = useState({ _id: "", username: "", password: "" });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      //access the users diary
+      axios
+        .post("http://localhost:8000/admin/verify", {
+          token: localStorage.getItem("token"),
+        })
+        .then(({ data }) => {
+          if (data._id) {
+            //access users entries
+            setAdmin(data);
+            axios
+              .get("http://localhost:8000/admin/inquiry")
+              .then(({ data }) => {
+                console.log(data);
+              });
+          } else {
+            navigate("/"); //go to login
+          }
+          console.log(data);
+        });
+    } else {
+      navigate("/"); // go to login
+    }
+  }, []);
+
+  function signOut() {
+    localStorage.removeItem("token");
+    navigate("/");
+  }
+
   return (
     <div className="App">
-      <button>Sign Out</button>
+      <button
+        onClick={() => {
+          signOut();
+        }}
+      >
+        Sign Out
+      </button>
       <h3>Welcome to Our Hotel customer service</h3>
       <h4>Admin page</h4>
       <div>

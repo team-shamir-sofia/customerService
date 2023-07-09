@@ -3,50 +3,42 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 
-
 function UserInput() {
-
   const [room, setRoom] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
   const [message, setMesage] = useState("");
+  const navigate = useNavigate();
 
   function handleSubmit(e) {
     e.preventDefault();
 
     const formData = {
-
       room: room,
       checkIn: checkIn,
       checkOut: checkOut,
       message: message,
     };
-
-
-
   }
 
-
-
-/*import React from "react";
+  /*import React from "react";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 function Userinput() {
-  const navigate = useNavigate();
+  
   const currentDate = new Date();
   const [inquiry, setInquiry] = useState("");
   const [date, setDate] = useState("");
   const [checkIn, setCheckIn] = useState(new Date());
   const [checkOut, setCheckOut] = useState(new Date());
-  const [room, setRoom] = useState("");
+  const [room, setRoom] = useState("");*/
 
   function signOut() {
     localStorage.removeItem("token");
     navigate("/");
-  }*/
-
+  }
 
   return (
     <div>
@@ -60,24 +52,38 @@ function Userinput() {
       <h3>Welcome to Customer Hub Service</h3>
       <p>Fill the form if you want a reply</p>
 
-      <div className="input-container" >
-        <label htmlFor="room"  >Room Number:</label>
+      <div className="input-container">
+        <label htmlFor="room">Room Number:</label>
         <input type="number" id="room"></input>
       </div>
       <br />
 
-      <div className="input-container" >
+      <div className="input-container">
         <label htmlFor="checkIn">Check In Date:</label>
         <input type="date" id="checkIn"></input>
       </div>
-      <br />
 
-      <div className="input-container" >
+      <div className="input-container">
         <label htmlFor="checkOut">Check Out Date:</label>
         <input type="date" id="checkOut"></input>
       </div>
 
-      {/* <div>
+      <br />
+      <button>Send</button>
+      <div>
+        <p>Inbox</p>
+        <ul>
+          <li>The msgs will appear here</li>
+          <li>If you don't have msgs, you'll see "no new msgs"</li>
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+export default UserInput;
+
+/*<div>
         <label for="room">Room Number:</label>
         <input
           type="text"
@@ -127,18 +133,5 @@ function Userinput() {
           Send
         </button>
 
-      </div>
-      <br />
-      <button>Send</button>
-      <div>
-        <p>Inbox</p>
-        <ul>
-          <li>The msgs will appear here</li>
-          <li>If you don't have msgs, you'll see "no new msgs"</li>
-        </ul>
-      </div>
-    </div>
-  );
-}
-
-export default Userinput;
+      
+        </div>*/
