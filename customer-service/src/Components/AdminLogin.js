@@ -4,21 +4,22 @@ import axios from "axios";
 
 function AdminLogin() {
     const navigate = useNavigate();
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
 
     function login() {
         axios
           .post("http://localhost:8000/login", {
-                 email,
+                 username,
                  password,
             })
           .then(({ data }) => {
             console.log(data);
             if (data.token) {
                 localStorage.setItem("token", data.token);
-                navigate("/admin")
+                localStorage.setItem("username", data.username);
+                navigate("/adminpage")
             } else {
                 alert(data.msg)
             }
@@ -31,8 +32,8 @@ function AdminLogin() {
 
     return (
         <div className="App">
-
-          <input type="email" placeholder="email" onChange={(e)=>{setEmail(e.target.value)}}/>
+          <h1>Welcome,  {username}!</h1>
+          <input type="username" placeholder="email" onChange={(e)=>{setUsername(e.target.value)}}/>
           <input type="password" placeholder="password" onChange={(e)=>{setPassword(e.target.value)}}/>
           <button onClick={()=> {login()}}>Login</button>
 
