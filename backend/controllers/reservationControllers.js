@@ -1,9 +1,31 @@
 const Reservation = require("../modules/reservationSchema");
 
 //create a reservation from the user
+// const userReservation = async (req, res) => {
+//   await Reservation.create(req.body);
+//   res.send({ msg: "send successfully" });
+// };
+
+// ADDITION
 const userReservation = async (req, res) => {
-  await Reservation.create(req.body);
-  res.send({ msg: "send successfully" });
+  const { userId, checkIn, checkOut, room, message} = req.body
+
+  try {
+    const reservation = await Reservation.create({
+      userId,
+      inquiry: message,
+      checkIn,
+      checkOut,
+      room,
+      date: new Date(),
+      comment: String,
+    });
+    res.send({message: "Reservation created successfully:", reservation});
+  } catch (error) {
+    console.log("Error creating reservation", error);
+    res.status(500).send({error: "Error creating reservation" });
+  }
+
 };
 
 //get notification for the reservation for the admin
