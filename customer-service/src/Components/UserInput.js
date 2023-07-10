@@ -49,8 +49,11 @@ function UserInput() {
   function handleSubmit(e) {
     e.preventDefault();
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
     const formData = {
       userId: user._id,
       inquiry: inquiry,
@@ -67,8 +70,11 @@ function UserInput() {
     };
     console.log(formData);
 
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
     // Axios Post function
     axios
       .post("http://localhost:8000/user/inquiry", formData)
@@ -96,11 +102,19 @@ function UserInput() {
       >
         Sign Out
       </button>
+<<<<<<< HEAD
       <h3 className="title-one" >Welcome to Customer Hub Service</h3>
       <p className="title"  >Fill the form with your request</p>
       <form onSubmit={handleSubmit}>
         <div className="input-container-two">
           <label  className="title" htmlFor="checkOut">Check In Date:</label>
+=======
+      <h3 className="title">Welcome to Customer Hub Service</h3>
+      <p>Fill the form with your request</p>
+      <form onSubmit={handleSubmit}>
+        <div className="input-container input-container-two">
+          <label htmlFor="checkOut">Check In Date:</label>
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
           <DatePicker
             id="checkIn"
             selected={checkIn}
@@ -110,8 +124,13 @@ function UserInput() {
           />
         </div>
 
+<<<<<<< HEAD
         <div className="input-container-two">
           <label className="title" htmlFor="checkOut">Check Out Date:</label>
+=======
+        <div className="input-container input-container-two">
+          <label htmlFor="checkOut">Check Out Date:</label>
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
           <DatePicker
             id="checkIn"
             selected={checkOut}
@@ -120,8 +139,13 @@ function UserInput() {
             placeholderText="Select a date"
           />
         </div>
+<<<<<<< HEAD
         <div className="input-container-two">
           <label className="title" htmlFor="room">Room Number:</label>
+=======
+        <div className="input-container input-container-two">
+          <label htmlFor="room">Room Number:</label>
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
           <input
             type="text"
             id="room"
@@ -130,7 +154,11 @@ function UserInput() {
           />
         </div>
 
+<<<<<<< HEAD
         <p className="title" >Write your msg here:</p>
+=======
+        <p>Write your msg here:</p>
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
         <textarea
           value={inquiry}
           onChange={(e) => setInquiry(e.target.value)}
@@ -162,6 +190,7 @@ function UserInput() {
 }
 
 export default UserInput;
+<<<<<<< HEAD
 
 
 
@@ -328,3 +357,5 @@ export default UserInput;
 
 
 
+=======
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1

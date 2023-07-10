@@ -29,7 +29,11 @@ function Signup() {
           navigate("/userinput");
           console.log("Token Saved in local storage");
         } else {
+<<<<<<< HEAD
          alert("Enter valid email and password");
+=======
+          alert("Enter valid email and password");
+>>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
         }
       })
       .catch((error) => {
