@@ -1,16 +1,25 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 
+body {
+  margin: 0;
+  height: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+
+}
 
 .App {
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -26,22 +35,12 @@ body {
 
 }
 
-body {
-  margin: 0;
-  height: 0;
-  box-sizing: border-box;
-}
 
-body {
-  height: 100%;
-
-}
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
 
 textarea {
   width: 100%;
@@ -58,8 +57,38 @@ textarea {
 .input-container {
   display: flex;
   flex-direction: column;
-
+  width: 500px;
 }
+
+#checkIn {
+  width: 500px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  height: 20px;
+}
+
+#checkOut {
+  width: 500px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  height: 20px;
+}
+
+
+.room {
+  width: 500px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  height: 20px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
 
 .input-container-one {
   /* background-color: brown; */
@@ -69,7 +98,230 @@ textarea {
 }
 
 
+.input-container-one label {
+ margin-bottom: 5px;
+}
 
+/* .input-container input,
+
+.input-container textarea {
+ margin-bottom: 10px;
+} */
+
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.App {
+  text-align: center;
+  background-color: #54617b;
+  color: white;
+  font-size: 15px;
+}
+
+.input-container-one [type="email"],
+.input-container-one [type="password"] {
+  border: 1px solid #3a0303;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 18px;
+}
+
+input[type="email"]:hover,
+input[type="password"]:hover,
+button:hover {
+  border-color: #7f6767
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+button:focus {
+  border-color: #333;
+  box-shadow: brown;
+}
+
+
+/* input[type="number"]
+input[type="date"]
+{
+  border: 1px solid black;
+  border-radius: 4px;
+
+} */
+
+
+.input-container-two {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.admin-username {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 8px;
+}
+
+.admin-password {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 8px;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 18px;
+}
+
+.admin-username {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin-top: 8px;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 18px;
+}
+
+.admin-login {
+margin-top: 8px;
+
+}
+
+.title-one {
+  font-size: 60px;
+}
+
+.title {
+  font-size: 16px;
+  
+}
+
+
+button {
+  cursor: pointer;
+  border-radius: 4px;
+  color: gray;
+  text-transform: uppercase;
+  letter-spacing:.2em;
+  border: none;
+}
+
+a:hover {
+  color: #333
+}
+
+a {
+  font-size: large;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+/* .input-container-one { */
+  /* background-color: brown; */
+  /* display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+
+
+.input-container-one label {
+ margin-bottom: 5px;
+/* } */
+/*
+.input-container label {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container input,
+
+.input-container textarea {
+ margin-bottom: 10px;
+} */
+
+
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.App {
+  text-align: center;
+  background-color: #54617b;
+  color: white;
+  font-size: 15px;
+}
+
+body {
+  margin: 0;
+  height: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-container-one {
+  background-color: brown;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+} */
 
 /* .input-container-one label {
  margin-bottom: 5px;

@@ -16,7 +16,7 @@ const connectionParams = {
 };
 
 const db = mongoose.connect("mongodb+srv://shamiroomar:shamiro43@cluster0.kbkujwz.mongodb.net/customerService?retryWrites=true&w=majority", connectionParams).then(() => {
-  console.log(`Connected to database`);
+  console.log(`Connected to MongoDB database`);
 })
 .catch(err => console.log("Error connecting to the database", err))
 

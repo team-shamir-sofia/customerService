@@ -8,7 +8,7 @@ const Reservation = mongoose.model("inquiry", {
   checkIn: String,
   checkOut: String,
   room: String,
-  date: String,
+  date: Date,
   comment: String, // this will be changed by the admin
 });
 
