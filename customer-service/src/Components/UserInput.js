@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import React from "react";
+import { AiOutlineMail } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -109,8 +110,8 @@ function UserInput() {
           <label htmlFor="checkOut">Check Out Date:</label>
           <DatePicker
             id="checkIn"
-            selected={checkIn}
-            onChange={(date) => setCheckIn(date)}
+            selected={checkOut}
+            onChange={(date) => setCheckOut(date)}
             dateFormat="dd/MM/yyyy"
             placeholderText="Select a date"
           />
@@ -132,8 +133,8 @@ function UserInput() {
         ></textarea>
         <button
           type="submit"
-          onClick={() => {
-            handleSubmit();
+          onClick={(e) => {
+            handleSubmit(e);
           }}
         >
           Send
@@ -143,11 +144,12 @@ function UserInput() {
         <p>Inbox</p>
         <ul>
           {replyList.map((replyList) => {
-            if (replyList.reply) {
-              return <li key={replyList._id}>{replyList.reply}</li>;
-            } else {
-              return <li>You have no new messages</li>;
-            }
+            return (
+              <li key={replyList._id}>
+                <AiOutlineMail className="icon"></AiOutlineMail>
+                {replyList.reply}
+              </li>
+            );
           })}
         </ul>
       </div>
