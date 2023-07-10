@@ -7,33 +7,84 @@ function AdminPage() {
   const [visibleReplyText, setVisibleReplyText] = useState(false);
   const [visibleCommentText, setVisibleCommentText] = useState(false);
   const [admin, setAdmin] = useState({ _id: "", username: "", password: "" });
+  const [adminMsg, setAdminMsg] = useState([]);
+  const [adminComment, setAdminComment] = useState("");
+  const [reply, setReply] = useState("");
+  const [adminId, setAdminId] = useState("");
+  const [userId, setUserId] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
-      //access the users diary
       axios
         .post("http://localhost:8000/admin/verify", {
           token: localStorage.getItem("token"),
         })
         .then(({ data }) => {
           if (data._id) {
-            //access users entries
             setAdmin(data);
             axios
               .get("http://localhost:8000/admin/inquiry")
               .then(({ data }) => {
+                setAdminMsg(data);
                 console.log(data);
               });
           } else {
-            navigate("/"); //go to login
+            navigate("/");
           }
-          console.log(data);
         });
     } else {
-      navigate("/"); // go to login
+      navigate("/");
     }
   }, []);
+
+  function deleteMsg(id) {
+    axios
+      .delete("http://localhost:8000/admin/delete/inquiry/" + id)
+      .then(({ data }) => {
+        axios.get("http://localhost:8000/admin/inquiry").then(({ data }) => {
+          setAdminMsg(data);
+          console.log(data);
+        });
+        alert(data.msg);
+      });
+    console.log(id);
+  }
+
+  function comment(id) {
+    console.log(adminId);
+    console.log(adminComment);
+    axios
+      .put("http://localhost:8000/admin/comment/inquiry/" + id, {
+        comment: adminComment,
+      })
+      .then(({ data }) => {
+        axios.get("http://localhost:8000/admin/inquiry").then(({ data }) => {
+          setAdminMsg(data);
+          console.log(data);
+        });
+        alert(data.msg);
+        setVisibleCommentText(!visibleCommentText);
+        setAdminComment("");
+      });
+  }
+
+  function adminReply() {
+    axios
+      .post("http://localhost:8000/admin/reply", {
+        usernameId: adminId,
+        userId: userId,
+        reply: reply,
+      })
+      .then(({ data }) => {
+        alert(data.msg);
+        setVisibleReplyText(!visibleReplyText);
+        setReply("");
+      });
+    console.log(userId);
+    console.log(adminId);
+    console.log(reply);
+  }
 
   function signOut() {
     localStorage.removeItem("token");
@@ -54,30 +105,83 @@ function AdminPage() {
       <div>
         <p>Inbox</p>
         <ul>
-          <li>
-            username email new message{" "}
-            <button onClick={() => setVisibleReplyText(!visibleReplyText)}>
-              Reply
-            </button>
-            <button onClick={() => setVisibleCommentText(!visibleCommentText)}>
-              Comment
-            </button>
-            <button>Delete</button>
-            {visibleReplyText && (
-              <div>
-                <textarea></textarea>
-                <button>Send</button>
-              </div>
-            )}
-            {visibleCommentText && (
-              <div>
-                <textarea></textarea>
-                <button>Save</button>
-              </div>
-            )}
-          </li>
-          <li>if you don't have msgs, you'll see "no new msgs"</li>
+          {adminMsg.map((adminMsg) => {
+            return (
+              <li key={adminMsg._id}>
+                {"date: " +
+                  adminMsg.date +
+                  " comment: " +
+                  adminMsg.comment +
+                  " room: " +
+                  adminMsg.room +
+                  " check in: " +
+                  adminMsg.checkIn +
+                  " check out: " +
+                  adminMsg.checkOut +
+                  " message: " +
+                  adminMsg.inquiry}
+                <button
+                  onClick={() => {
+                    setVisibleReplyText(!visibleReplyText);
+                    setAdminId(adminMsg._id);
+                    setUserId(adminMsg.userId);
+                  }}
+                >
+                  Reply
+                </button>
+                <button
+                  onClick={() => {
+                    setVisibleCommentText(!visibleCommentText);
+                    setAdminId(adminMsg._id);
+                  }}
+                >
+                  Comment
+                </button>
+                <button
+                  onClick={() => {
+                    deleteMsg(adminMsg._id);
+                  }}
+                >
+                  Delete
+                </button>
+              </li>
+            );
+          })}
         </ul>
+        {visibleReplyText && (
+          <div>
+            <textarea
+              value={reply}
+              onChange={(e) => {
+                setReply(e.target.value);
+              }}
+            ></textarea>
+            <button
+              onClick={() => {
+                adminReply();
+              }}
+            >
+              Send
+            </button>
+          </div>
+        )}
+        {visibleCommentText && (
+          <div>
+            <textarea
+              value={adminComment}
+              onChange={(e) => {
+                setAdminComment(e.target.value);
+              }}
+            ></textarea>
+            <button
+              onClick={() => {
+                comment(adminId);
+              }}
+            >
+              Save
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

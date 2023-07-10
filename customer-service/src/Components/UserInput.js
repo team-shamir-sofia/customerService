@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import { useState } from "react";
 import axios from "axios";
 
@@ -7,7 +8,8 @@ function UserInput() {
   const [room, setRoom] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [message, setMesage] = useState("");
+  const [message, setMessage] = useState("");
+  const [date, setDate] = useState("");
   const navigate = useNavigate();
 
   function handleSubmit(e) {
@@ -26,7 +28,7 @@ import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-function Userinput() {
+ function Userinput() {
   
   const currentDate = new Date();
   const [inquiry, setInquiry] = useState("");
@@ -69,6 +71,8 @@ function Userinput() {
       </div>
 
       <br />
+      <p>Write your msg here:</p>
+      <textarea></textarea>
       <button>Send</button>
       <div>
         <p>Inbox</p>
@@ -84,6 +88,7 @@ function Userinput() {
 export default UserInput;
 
 /*<div>
+
         <label for="room">Room Number:</label>
         <input
           type="text"
