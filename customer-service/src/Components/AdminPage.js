@@ -108,18 +108,17 @@ function AdminPage() {
           {adminMsg.map((adminMsg) => {
             return (
               <li key={adminMsg._id}>
-                {"date: " +
-                  adminMsg.date +
-                  " comment: " +
-                  adminMsg.comment +
-                  " room: " +
+                {"date: " + adminMsg.date + " comment: " + adminMsg.comment}
+                <br></br>
+                {" room: " +
                   adminMsg.room +
                   " check in: " +
-                  adminMsg.checkIn +
+                  adminMsg.checkIn.slice(0, 10) +
                   " check out: " +
-                  adminMsg.checkOut +
-                  " message: " +
-                  adminMsg.inquiry}
+                  adminMsg.checkOut.slice(0, 10)}
+                <br></br>
+                {" message: " + adminMsg.inquiry}
+                <br></br>
                 <button
                   onClick={() => {
                     setVisibleReplyText(!visibleReplyText);

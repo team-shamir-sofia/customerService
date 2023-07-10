@@ -1,47 +1,87 @@
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { useState } from "react";
+import React from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 function UserInput() {
-  const [room, setRoom] = useState("");
   const [checkIn, setCheckIn] = useState("");
   const [checkOut, setCheckOut] = useState("");
-  const [message, setMessage] = useState("");
+  const [room, setRoom] = useState("");
+  const [inquiry, setInquiry] = useState("");
   const [date, setDate] = useState("");
+  const [user, setUser] = useState("");
+  const [replyList, setReplyList] = useState([]);
   const navigate = useNavigate();
+  const currentDate = new Date();
+
+  //get user's msgs after verification
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      axios
+        .post("http://localhost:8000/user/verify", {
+          token: localStorage.getItem("token"),
+        })
+        .then(({ data }) => {
+          if (data._id) {
+            setUser(data);
+            console.log(data._id);
+            axios
+              .get("http://localhost:8000/user/getReply/" + data._id)
+              .then(({ data }) => {
+                console.log(data);
+                setReplyList(data);
+              });
+          } else {
+            navigate("/"); //go to login
+          }
+          console.log(data);
+        });
+    } else {
+      navigate("/"); // go to login
+    }
+  }, []);
 
   function handleSubmit(e) {
     e.preventDefault();
 
     const formData = {
-      room: room,
+      userId: user._id,
+      inquiry: inquiry,
       checkIn: checkIn,
       checkOut: checkOut,
-      message: message,
+      room: room,
+      date:
+        currentDate.getDate() +
+        "/" +
+        (currentDate.getMonth() + 1) +
+        "/" +
+        currentDate.getFullYear(),
+      comment: "New Message",
     };
+    console.log(formData);
+
+    // Axios Post function
+    axios
+      .post("http://localhost:8000/user/inquiry", formData)
+      .then((res) => {
+        console.log(res);
+        // alert("Your message has been submitted successfully!");
+        toast.success("Your message has been submitted successfully!");
+        setInquiry("");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
-
-  /*import React from "react";
-import { useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
-
- function Userinput() {
-  
-  const currentDate = new Date();
-  const [inquiry, setInquiry] = useState("");
-  const [date, setDate] = useState("");
-  const [checkIn, setCheckIn] = useState(new Date());
-  const [checkOut, setCheckOut] = useState(new Date());
-  const [room, setRoom] = useState("");*/
 
   function signOut() {
     localStorage.removeItem("token");
     navigate("/");
   }
-
   return (
     <div>
       <button
@@ -52,33 +92,63 @@ import "react-datepicker/dist/react-datepicker.css";
         Sign Out
       </button>
       <h3>Welcome to Customer Hub Service</h3>
-      <p>Fill the form if you want a reply</p>
+      <p>Fill the form with your request</p>
+      <form onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label htmlFor="checkOut">Check In Date:</label>
+          <DatePicker
+            id="checkIn"
+            selected={checkIn}
+            onChange={(date) => setCheckIn(date)}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Select a date"
+          />
+        </div>
 
-      <div className="input-container">
-        <label htmlFor="room">Room Number:</label>
-        <input type="number" id="room"></input>
-      </div>
-      <br />
+        <div className="input-container">
+          <label htmlFor="checkOut">Check Out Date:</label>
+          <DatePicker
+            id="checkIn"
+            selected={checkIn}
+            onChange={(date) => setCheckIn(date)}
+            dateFormat="dd/MM/yyyy"
+            placeholderText="Select a date"
+          />
+        </div>
+        <div className="input-container">
+          <label htmlFor="room">Room Number:</label>
+          <input
+            type="number"
+            id="room"
+            value={room}
+            onChange={(e) => setRoom(Number(e.target.value))}
+          />
+        </div>
 
-      <div className="input-container">
-        <label htmlFor="checkIn">Check In Date:</label>
-        <input type="date" id="checkIn"></input>
-      </div>
-
-      <div className="input-container">
-        <label htmlFor="checkOut">Check Out Date:</label>
-        <input type="date" id="checkOut"></input>
-      </div>
-
-      <br />
-      <p>Write your msg here:</p>
-      <textarea></textarea>
-      <button>Send</button>
+        <p>Write your msg here:</p>
+        <textarea
+          value={inquiry}
+          onChange={(e) => setInquiry(e.target.value)}
+        ></textarea>
+        <button
+          type="submit"
+          onClick={() => {
+            handleSubmit();
+          }}
+        >
+          Send
+        </button>
+      </form>
       <div>
         <p>Inbox</p>
         <ul>
-          <li>The msgs will appear here</li>
-          <li>If you don't have msgs, you'll see "no new msgs"</li>
+          {replyList.map((replyList) => {
+            if (replyList.reply) {
+              return <li key={replyList._id}>{replyList.reply}</li>;
+            } else {
+              return <li>You have no new messages</li>;
+            }
+          })}
         </ul>
       </div>
     </div>
@@ -86,57 +156,3 @@ import "react-datepicker/dist/react-datepicker.css";
 }
 
 export default UserInput;
-
-/*<div>
-
-        <label for="room">Room Number:</label>
-        <input
-          type="text"
-          id="room"
-          onChange={(e) => {
-            setRoom(e.target.value);
-          }}
-        ></input>
-        <br></br>
-        <label for="checkIn">Check In Date:</label>
-        <DatePicker
-          selected={checkIn}
-          id="checkIn"
-          dateFormat="dd/MM/yyyy"
-          onChange={(e) => {
-            setCheckIn(e);
-          }}
-        ></DatePicker>
-        <br></br>
-        <label for="checkOut">Check Out Date:</label>
-
-        <DatePicker
-          id="checkOut"
-          selected={checkOut}
-          dateFormat="dd/MM/yyyy"
-          onChange={(e) => {
-            setCheckOut(e);
-          }}
-        ></DatePicker>
-      </div>
-      <div>
-        <p>Write your msg here:</p>
-        <textarea
-          onChange={(e) => {
-            setInquiry(e.target.value);
-          }}
-        ></textarea>
-        <button
-          onClick={() => {
-            console.log(checkIn);
-            console.log(checkOut);
-            console.log(room);
-            console.log(inquiry);
-            console.log(currentDate);
-          }}
-        >
-          Send
-        </button>
-
-      
-        </div>*/
