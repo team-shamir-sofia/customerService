@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AiOutlineMail } from "react-icons/ai";
 
 function AdminPage() {
   const [visibleReplyText, setVisibleReplyText] = useState(false);
@@ -30,11 +31,11 @@ function AdminPage() {
                 console.log(data);
               });
           } else {
-            navigate("/");
+            navigate("/adminlogin");
           }
         });
     } else {
-      navigate("/");
+      navigate("/adminlogin");
     }
   }, []);
 
@@ -88,7 +89,7 @@ function AdminPage() {
 
   function signOut() {
     localStorage.removeItem("token");
-    navigate("/");
+    navigate("/adminlogin");
   }
 
   return (
@@ -108,18 +109,18 @@ function AdminPage() {
           {adminMsg.map((adminMsg) => {
             return (
               <li key={adminMsg._id}>
-                {"date: " +
-                  adminMsg.date +
-                  " comment: " +
-                  adminMsg.comment +
-                  " room: " +
+                <AiOutlineMail className="icon"></AiOutlineMail>
+                {"date: " + adminMsg.date + " comment: " + adminMsg.comment}
+                <br></br>
+                {" room: " +
                   adminMsg.room +
                   " check in: " +
                   adminMsg.checkIn +
                   " check out: " +
-                  adminMsg.checkOut +
-                  " message: " +
-                  adminMsg.inquiry}
+                  adminMsg.checkOut}
+                <br></br>
+                {" message: " + adminMsg.inquiry}
+                <br></br>
                 <button
                   onClick={() => {
                     setVisibleReplyText(!visibleReplyText);

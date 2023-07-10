@@ -9,6 +9,11 @@ body {
 
 body {
   margin: 0;
+  height: 0;
+  box-sizing: border-box;
+}
+
+body {
   height: 100%;
 }
 
@@ -25,16 +30,6 @@ body {
   background-color: #54617b;
   color: white;
   font-size: 15px;
-}
-
-body {
-  margin: 0;
-  height: 0;
-  box-sizing: border-box;
-}
-
-body {
-  height: 100%;
 }
 
 code {
@@ -54,9 +49,38 @@ textarea {
   resize: none;
 }
 
-.App {
+.input-container {
   display: flex;
   flex-direction: column;
+  width: 500px;
+}
+
+#checkIn {
+  width: 500px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  height: 20px;
+}
+
+#checkOut {
+  width: 500px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  height: 20px;
+}
+
+.room {
+  width: 500px;
+  margin-bottom: 5px;
+  border-radius: 6px;
+  height: 20px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 200px;
 }
 
 .input-container-one {
@@ -66,12 +90,100 @@ textarea {
   width: 500px;
 }
 
-/* .input-container-one label {
- margin-bottom: 5px;
-} */
+.input-container-one label {
+  margin-bottom: 5px;
+}
 
 /* .input-container input,
 
 .input-container textarea {
  margin-bottom: 10px;
 } */
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.App {
+  text-align: center;
+  background-color: #54617b;
+  color: white;
+  font-size: 15px;
+}
+
+input[type="email"],
+input[type="password"] {
+  border: 1px solid #3a0303;
+  border-radius: 6px;
+  padding: 6px;
+  font-size: 18px;
+}
+
+input[type="email"]:hover,
+input[type="password"]:hover,
+button:hover {
+  border-color: #7f6767;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus,
+button:focus {
+  border-color: #333;
+  box-shadow: brown;
+}
+
+/* input[type="number"]
+input[type="date"]
+{
+  border: 1px solid black;
+  border-radius: 4px;
+
+} */
+
+.input-container-two {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 4px;
+  color: gray;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: none;
+}
+
+a:hover {
+  color: #333;
+}
+
+a {
+  font-size: large;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+li {
+  list-style-type: none;
+}
+
+.icon {
+  margin-right: 10px;
+}
