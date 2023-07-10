@@ -27,7 +27,7 @@ function Signup() {
           navigate("/userinput");
           console.log("Token Saved in local storage");
         } else {
-          alert(`Error ${response.status}: ${response.message}`);
+          alert("Enter valid email and password");
         }
       })
       .catch((error) => {

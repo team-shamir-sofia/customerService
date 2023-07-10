@@ -101,7 +101,7 @@ function AdminPage() {
       >
         Sign Out
       </button>
-      <h3>Welcome to Our Hotel customer service</h3>
+      <h3 className="title">Welcome to Our Hotel customer service</h3>
       <h4>Admin page</h4>
       <div>
         <p>Inbox</p>

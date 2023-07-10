@@ -92,10 +92,10 @@ function UserInput() {
       >
         Sign Out
       </button>
-      <h3>Welcome to Customer Hub Service</h3>
+      <h3 className="title">Welcome to Customer Hub Service</h3>
       <p>Fill the form with your request</p>
       <form onSubmit={handleSubmit}>
-        <div className="input-container">
+        <div className="input-container input-container-two">
           <label htmlFor="checkOut">Check In Date:</label>
           <DatePicker
             id="checkIn"
@@ -106,7 +106,7 @@ function UserInput() {
           />
         </div>
 
-        <div className="input-container">
+        <div className="input-container input-container-two">
           <label htmlFor="checkOut">Check Out Date:</label>
           <DatePicker
             id="checkIn"
@@ -116,10 +116,10 @@ function UserInput() {
             placeholderText="Select a date"
           />
         </div>
-        <div className="input-container">
+        <div className="input-container input-container-two">
           <label htmlFor="room">Room Number:</label>
           <input
-            type="number"
+            type="text"
             id="room"
             value={room}
             onChange={(e) => setRoom(Number(e.target.value))}
