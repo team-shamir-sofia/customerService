@@ -2,14 +2,14 @@
 const mongoose = require("mongoose");
 const db = require("./connection");
 
-const Reservation = mongoose.model("inquiry", {
+const Inquiry = mongoose.model("inquiry", {
   userId: String, // User._id
   inquiry: String,
   checkIn: String,
   checkOut: String,
   room: String,
-  date: Date,
+  date: String,
   comment: String, // this will be changed by the admin
 });
 
-module.exports = Reservation;
+module.exports = Inquiry;

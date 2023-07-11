@@ -14,7 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* background-color: #54617b;*/
+
 .App {
   background-color: none;
   display: grid;
@@ -85,7 +85,6 @@ textarea {
 }
 
 .input-container-one {
-  /* background-color: brown; */
   display: grid;
   justify-content: center;
   align-items: center;
@@ -95,12 +94,6 @@ textarea {
 .input-container-one label {
   margin-bottom: 5px;
 }
-
-/* .input-container input,
-
-.input-container textarea {
- margin-bottom: 10px;
-} */
 
 input[type="email"],
 input[type="password"] {
@@ -123,14 +116,6 @@ button:focus {
   border-color: #333;
   box-shadow: brown;
 }
-
-/* input[type="number"]
-input[type="date"]
-{
-  border: 1px solid black;
-  border-radius: 4px;
-
-} */
 
 .input-container-two {
   display: grid;

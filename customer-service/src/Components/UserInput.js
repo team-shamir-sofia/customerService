@@ -70,8 +70,8 @@ function UserInput() {
       .post("http://localhost:8000/user/inquiry", formData)
       .then((res) => {
         console.log(res);
-        // alert("Your message has been submitted successfully!");
-        toast.success("Your message has been submitted successfully!");
+        alert("Your message has been submitted successfully!");
+        // toast.success("Your message has been submitted successfully!");
         setInquiry("");
       })
       .catch((error) => {
@@ -106,12 +106,12 @@ function UserInput() {
         <form onSubmit={handleSubmit}>
           <div className="form">
             <div className="input-container input-container-two">
-              <label htmlFor="checkOut">Check In Date:</label>
+              <label htmlFor="checkIn">Check In Date:</label>
               <DatePicker
                 id="checkIn"
                 selected={checkIn}
                 onChange={(date) => setCheckIn(date)}
-                dateFormat="dd/MM/yyyy"
+                dateFormat="dd/MM/yyyy" //didn't work
                 placeholderText="Select a date"
               />
             </div>
