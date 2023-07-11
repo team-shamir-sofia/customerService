@@ -94,62 +94,69 @@ function AdminPage() {
 
   return (
     <div className="App">
-      <button
-        onClick={() => {
-          signOut();
-        }}
-      >
-        Sign Out
-      </button>
-<<<<<<< HEAD
-      <h3>Welcome to Our Hotel customer service</h3>
-=======
-      <h3 className="title">Welcome to Our Hotel customer service</h3>
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-      <h4>Admin page</h4>
+      <div className="signout-header">
+        <button
+          className="signout"
+          onClick={() => {
+            signOut();
+          }}
+        >
+          Sign Out
+        </button>
+      </div>
+
+      <h2>Welcome to Our Hotel customer service</h2>
+      <h3>Admin page</h3>
       <div>
-        <p>Inbox</p>
+        <h3 id="inbox-header">Inbox</h3>
         <ul>
           {adminMsg.map((adminMsg) => {
             return (
-              <li key={adminMsg._id}>
-                <AiOutlineMail className="icon"></AiOutlineMail>
-                {"date: " + adminMsg.date + " comment: " + adminMsg.comment}
-                <br></br>
-                {" room: " +
-                  adminMsg.room +
-                  " check in: " +
-                  adminMsg.checkIn +
-                  " check out: " +
-                  adminMsg.checkOut}
-                <br></br>
-                {" message: " + adminMsg.inquiry}
-                <br></br>
-                <button
-                  onClick={() => {
-                    setVisibleReplyText(!visibleReplyText);
-                    setAdminId(adminMsg._id);
-                    setUserId(adminMsg.userId);
-                  }}
-                >
-                  Reply
-                </button>
-                <button
-                  onClick={() => {
-                    setVisibleCommentText(!visibleCommentText);
-                    setAdminId(adminMsg._id);
-                  }}
-                >
-                  Comment
-                </button>
-                <button
-                  onClick={() => {
-                    deleteMsg(adminMsg._id);
-                  }}
-                >
-                  Delete
-                </button>
-              </li>
+              <div className="msg-list">
+                <li className="admin-list" key={adminMsg._id}>
+                  <AiOutlineMail className="icon"></AiOutlineMail>
+                  {"date: " + adminMsg.date + " comment: " + adminMsg.comment}
+                  <br></br>
+                  {" room: " +
+                    adminMsg.room +
+                    " check in: " +
+                    adminMsg.checkIn +
+                    " check out: " +
+                    adminMsg.checkOut}
+                  <br></br>
+                  {" message: " + adminMsg.inquiry}
+                  <br></br>
+                  <div className="admin-btns">
+                    <button
+                      className="list-btn"
+                      onClick={() => {
+                        setVisibleReplyText(!visibleReplyText);
+                        setAdminId(adminMsg._id);
+                        setUserId(adminMsg.userId);
+                      }}
+                    >
+                      Reply
+                    </button>
+                    <button
+                      className="list-btn"
+                      onClick={() => {
+                        setVisibleCommentText(!visibleCommentText);
+                        setAdminId(adminMsg._id);
+                      }}
+                    >
+                      Comment
+                    </button>
+                    <button
+                      className="list-btn"
+                      onClick={() => {
+                        deleteMsg(adminMsg._id);
+                      }}
+                    >
+                      Delete
+                    </button>
+                  </div>
+                </li>
+              </div>
             );
           })}
         </ul>
@@ -193,9 +200,6 @@ function AdminPage() {
 }
 
 export default AdminPage;
-
-
-
 
 // import React from "react";
 // import { useState, useEffect } from "react";
@@ -386,8 +390,6 @@ export default AdminPage;
 
 // export default AdminPage;
 
-
-
 // import React from "react";
 // import { useState, useEffect } from "react";
 // import { useNavigate } from "react-router-dom";
@@ -487,8 +489,3 @@ export default AdminPage;
 // }
 
 // export default AdminPage;
-
-
-
-
-
