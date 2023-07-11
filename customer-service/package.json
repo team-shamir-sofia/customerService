@@ -13,11 +13,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-router-dom": "^6.14.1",
-<<<<<<< HEAD
-    "react-scripts": "^5.0.1",
-=======
     "react-scripts": "5.0.1",
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
     "react-toastify": "^9.1.3",
     "web-vitals": "^2.1.4"
   },

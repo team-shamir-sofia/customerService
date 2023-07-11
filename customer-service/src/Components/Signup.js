@@ -13,8 +13,6 @@ function Signup() {
     navigate("/");
   }
 
-
-
   function signup() {
     axios
       .post("http://localhost:8000/user/signup", {
@@ -29,11 +27,7 @@ function Signup() {
           navigate("/userinput");
           console.log("Token Saved in local storage");
         } else {
-<<<<<<< HEAD
-         alert("Enter valid email and password");
-=======
           alert("Enter valid email and password");
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
         }
       })
       .catch((error) => {
@@ -44,41 +38,62 @@ function Signup() {
   return (
     <div className="App">
       <h1>Customer Hub</h1>
-      <input
-        type="text"
-        placeholder="username"
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-      />
-      <input
-        type="email"
-        placeholder="email"
-        onChange={(e) => {
-          setEmail(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <input
-        type="text"
-        placeholder="phone"
-        onChange={(e) => {
-          setPhone(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          signup();
-        }}
-      >
-        Signup
-      </button>
+      <h3>Create an account</h3>
+      <div className="form">
+        <div className="input-container-one">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            placeholder="username"
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+        </div>
+        <div className="input-container-one">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <div className="input-container-one">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+
+        <div className="input-container-one">
+          <label htmlFor="phone">Phone Number</label>
+          <input
+            id="phone"
+            type="text"
+            placeholder="phone"
+            onChange={(e) => {
+              setPhone(e.target.value);
+            }}
+          />
+        </div>
+
+        <button
+          onClick={() => {
+            signup();
+          }}
+        >
+          Signup
+        </button>
+      </div>
 
       <p>
         You already have an account? {""}
@@ -98,9 +113,6 @@ function Signup() {
 }
 
 export default Signup;
-
-
-
 
 // import { useNavigate } from "react-router-dom";
 // import { useState } from "react";
@@ -196,7 +208,6 @@ export default Signup;
 // }
 
 // export default Signup;
-
 
 // import { useNavigate } from "react-router-dom";
 // import { useState } from "react";

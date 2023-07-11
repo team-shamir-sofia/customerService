@@ -38,38 +38,40 @@ function Login() {
   return (
     <div className="App">
       <h1>Customer Hub</h1>
-
-      <div className="input-container-one">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          placeholder="email"
-          onChange={(e) => {
-            setEmail(e.target.value);
+      <h3>Login to get in touch with one of our associates</h3>
+      <div className="form">
+        <div className="input-container-one">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="email"
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+        </div>
+        <br />
+        <div className="input-container-one">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <br />
+        <button
+          onClick={() => {
+            login();
           }}
-        />
+        >
+          Login
+        </button>
       </div>
-      <br />
-      <div className="input-container-one">
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
-        />
-      </div>
-      <br />
-      <button
-        onClick={() => {
-          login();
-        }}
-      >
-        Login
-      </button>
 
       <p>
         Don't have an account? {""}
@@ -89,7 +91,6 @@ function Login() {
 }
 
 export default Login;
-
 
 // import { useNavigate } from "react-router-dom";
 // import { useState, useEffect } from "react";
@@ -183,13 +184,6 @@ export default Login;
 
 // export default Login;
 
-
-
-
-
-
-
-
 // import { useNavigate } from "react-router-dom";
 // import { useState, useEffect } from "react";
 // import axios from "axios";
@@ -281,10 +275,6 @@ export default Login;
 // }
 
 // export default Login;
-
-
-
-
 
 // import { useNavigate } from "react-router-dom";
 // import { useState, useEffect } from "react";
