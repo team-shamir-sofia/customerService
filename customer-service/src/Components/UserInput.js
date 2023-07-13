@@ -106,12 +106,17 @@ function UserInput() {
         <form onSubmit={handleSubmit}>
           <div className="form">
             <div className="input-container input-container-two">
-              <label htmlFor="checkIn">Check In Date:</label>
+
+              <label htmlFor="checkOut">Check In Date:</label>
+
+
               <DatePicker
                 id="checkIn"
                 selected={checkIn}
                 onChange={(date) => setCheckIn(date)}
+
                 dateFormat="dd/MM/yyyy" //didn't work
+
                 placeholderText="Select a date"
               />
             </div>

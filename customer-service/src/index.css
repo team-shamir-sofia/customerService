@@ -85,6 +85,7 @@ textarea {
 }
 
 .input-container-one {
+
   display: grid;
   justify-content: center;
   align-items: center;
@@ -94,6 +95,7 @@ textarea {
 .input-container-one label {
   margin-bottom: 5px;
 }
+
 
 input[type="email"],
 input[type="password"] {
@@ -116,6 +118,9 @@ button:focus {
   border-color: #333;
   box-shadow: brown;
 }
+
+
+
 
 .input-container-two {
   display: grid;
@@ -208,6 +213,117 @@ h1 {
 .msg-list {
   display: grid;
   justify-content: left;
+
+.input-container-two {
+  display: grid;
+  width: 300px;
+}
+
+.title {
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  border-radius: 4px;
+  color: rgb(66, 66, 66);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: none;
+  margin: 5px;
+  width: 80px;
+  justify-self: center;
+}
+
+a:hover {
+  color: #333;
+}
+
+a {
+  color: aquamarine;
+  font-size: large;
+  text-align: left;
+}
+
+
+#inbox-header {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  letter-spacing: 0.2em;
+}
+
+.user-heading-text {
+  margin-bottom: 50px;
+  margin-block-start: 0em;
+
+}
+
+.admin-btns {
+  justify-self: right;
+  width: fit-content;
+}
+
+.admin-list {
+  margin-bottom: 30px;
+}
+
+.list-btn {
+  text-transform: none;
+  width: fit-content;
+}
+
+input {
+  border: 1px solid #3a0303;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  padding: 6px;
+  width: 300px;
+  font-size: 18px;
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+h1 {
+  margin: 50px;
+  font-size: 40px;
+}
+
+.form {
+  display: grid;
+  justify-content: center;
+}
+
+.admin-header {
+  margin-bottom: 20px;
+}
+
+.signout {
+  justify-self: right;
+  margin-top: 10px;
+  width: 100px;
+}
+
+.container-user {
+  display: grid;
+  width: 100%;
+}
+
+
+.signout-header {
+  display: grid;
+  width: 1300px;
+}
+
+.msg-list {
+  display: grid;
+  justify-content: left;
   font-size: large;
   text-align: left;
 }
@@ -237,3 +353,4 @@ h1 {
   text-transform: none;
   width: fit-content;
 }
+
