@@ -49,11 +49,6 @@ function UserInput() {
   function handleSubmit(e) {
     e.preventDefault();
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
     const formData = {
       userId: user._id,
       inquiry: inquiry,
@@ -70,11 +65,6 @@ function UserInput() {
     };
     console.log(formData);
 
-<<<<<<< HEAD
-    
-
-=======
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
     // Axios Post function
     axios
       .post("http://localhost:8000/user/inquiry", formData)
@@ -95,102 +85,95 @@ function UserInput() {
   }
   return (
     <div>
-      <button
-        onClick={() => {
-          signOut();
-        }}
-      >
-        Sign Out
-      </button>
-<<<<<<< HEAD
-      <h3 className="title-one" >Welcome to Customer Hub Service</h3>
-      <p className="title"  >Fill the form with your request</p>
-      <form onSubmit={handleSubmit}>
-        <div className="input-container-two">
-          <label  className="title" htmlFor="checkOut">Check In Date:</label>
-=======
-      <h3 className="title">Welcome to Customer Hub Service</h3>
-      <p>Fill the form with your request</p>
-      <form onSubmit={handleSubmit}>
-        <div className="input-container input-container-two">
-          <label htmlFor="checkOut">Check In Date:</label>
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-          <DatePicker
-            id="checkIn"
-            selected={checkIn}
-            onChange={(date) => setCheckIn(date)}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Select a date"
-          />
-        </div>
-
-<<<<<<< HEAD
-        <div className="input-container-two">
-          <label className="title" htmlFor="checkOut">Check Out Date:</label>
-=======
-        <div className="input-container input-container-two">
-          <label htmlFor="checkOut">Check Out Date:</label>
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-          <DatePicker
-            id="checkIn"
-            selected={checkOut}
-            onChange={(date) => setCheckOut(date)}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Select a date"
-          />
-        </div>
-<<<<<<< HEAD
-        <div className="input-container-two">
-          <label className="title" htmlFor="room">Room Number:</label>
-=======
-        <div className="input-container input-container-two">
-          <label htmlFor="room">Room Number:</label>
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-          <input
-            type="text"
-            id="room"
-            value={room}
-            onChange={(e) => setRoom(Number(e.target.value))}
-          />
-        </div>
-
-<<<<<<< HEAD
-        <p className="title" >Write your msg here:</p>
-=======
-        <p>Write your msg here:</p>
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-        <textarea
-          value={inquiry}
-          onChange={(e) => setInquiry(e.target.value)}
-        ></textarea>
+      <div className="signout-header">
         <button
-          type="submit"
-          onClick={(e) => {
-            handleSubmit(e);
+          className="signout"
+          onClick={() => {
+            signOut();
           }}
         >
-          Send
+          Sign Out
         </button>
-      </form>
-      <div>
-        <p>Inbox</p>
-        <ul>
-          {replyList.map((replyList) => {
-            return (
+      </div>
+
+      <div className="App">
+        <h2>Welcome to Customer Hub Service</h2>
+        <h3>We are here for you</h3>
+        <p className="user-heading-text">
+          Fill the form with your request, one of our associates will contact
+          you in the next 24 hours
+        </p>
+        <form onSubmit={handleSubmit}>
+          <div className="form">
+            <div className="input-container input-container-two">
+              <label htmlFor="checkOut">Check In Date:</label>
+              <DatePicker
+                id="checkIn"
+                selected={checkIn}
+                onChange={(date) => setCheckIn(date)}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Select a date"
+              />
+            </div>
+
+            <div className="input-container input-container-two">
+              <label htmlFor="checkOut">Check Out Date:</label>
+              <DatePicker
+                id="checkIn"
+                selected={checkOut}
+                onChange={(date) => setCheckOut(date)}
+                dateFormat="dd/MM/yyyy"
+                placeholderText="Select a date"
+              />
+            </div>
+            <div className="input-container input-container-two">
+              <label htmlFor="room">Room Number:</label>
+              <input
+                type="text"
+                id="room"
+                placeholder="Room number"
+                value={room}
+                onChange={(e) => setRoom(Number(e.target.value))}
+              />
+            </div>
+          </div>
+
+          <p>Write your msg here:</p>
+          <textarea
+            value={inquiry}
+            onChange={(e) => setInquiry(e.target.value)}
+          ></textarea>
+          <button
+            type="submit"
+            onClick={(e) => {
+              handleSubmit(e);
+            }}
+          >
+            Send
+          </button>
+        </form>
+        <div>
+          <h3 id="inbox-header"> Inbox </h3>
+        </div>
+      </div>
+
+      <ul>
+        {replyList.map((replyList) => {
+          return (
+            <div className="msg-list">
               <li key={replyList._id}>
                 <AiOutlineMail className="icon"></AiOutlineMail>
                 {replyList.reply}
               </li>
-            );
-          })}
-        </ul>
-      </div>
+            </div>
+          );
+        })}
+      </ul>
     </div>
   );
 }
 
 export default UserInput;
-<<<<<<< HEAD
 
 
 
@@ -357,5 +340,3 @@ export default UserInput;
 
 
 
-=======
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1

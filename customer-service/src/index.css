@@ -1,6 +1,12 @@
 body {
   margin: 0;
-  background-color: #54617b;
+  background-image: linear-gradient(to bottom right, #54617b, #191e28);
+  background-repeat: no-repeat;
+  margin: 0;
+  width: 100%;
+  background-attachment: fixed;
+  height: 100%;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
@@ -8,51 +14,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-body {
-  margin: 0;
-  height: 0;
-  box-sizing: border-box;
-<<<<<<< HEAD
-}
-
-body {
-  height: 100%;
-
-}
-=======
-}
-
-body {
-  height: 100%;
-}
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-
+/* background-color: #54617b;*/
 .App {
-  display: flex;
-  flex-direction: column;
+  background-color: none;
+  display: grid;
   align-items: center;
   justify-content: center;
   min-height: 50vh;
-}
-
-.App {
   text-align: center;
-  background-color: #54617b;
   color: white;
   font-size: 15px;
-<<<<<<< HEAD
-
 }
-
-
-=======
-}
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
@@ -72,84 +44,56 @@ textarea {
 }
 
 .input-container {
-  display: flex;
-  flex-direction: column;
-<<<<<<< HEAD
-  width: 500px;
-=======
+  display: grid;
+
   width: 300px;
 }
 
 #checkIn {
-  width: 500px;
+  width: 300px;
   margin-bottom: 5px;
   border-radius: 6px;
   height: 20px;
 }
 
 #checkOut {
-  width: 500px;
+  width: 300px;
   margin-bottom: 5px;
   border-radius: 6px;
   height: 20px;
 }
 
 .room {
-  width: 500px;
+  width: 300px;
   margin-bottom: 5px;
   border-radius: 6px;
   height: 20px;
 }
 
 .inputs {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
   margin-bottom: 10px;
   width: 200px;
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
 }
-
-#checkIn {
-  width: 500px;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  height: 20px;
-}
-
-#checkOut {
-  width: 500px;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  height: 20px;
-}
-
 
 .room {
-  width: 500px;
+  width: 300px;
   margin-bottom: 5px;
   border-radius: 6px;
   height: 20px;
 }
-
-.inputs {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-  width: 200px;
-}
-
 
 .input-container-one {
   /* background-color: brown; */
-  display: flex;
-  flex-direction: column;
-  width: 500px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
 }
-<<<<<<< HEAD
-
 
 .input-container-one label {
- margin-bottom: 5px;
+  margin-bottom: 5px;
 }
 
 /* .input-container input,
@@ -158,34 +102,19 @@ textarea {
  margin-bottom: 10px;
 } */
 
-
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-}
-
-.App {
-  text-align: center;
-  background-color: #54617b;
-  color: white;
-  font-size: 15px;
-}
-
-.input-container-one [type="email"],
-.input-container-one [type="password"] {
+input[type="email"],
+input[type="password"] {
   border: 1px solid #3a0303;
   border-radius: 6px;
   padding: 6px;
   font-size: 18px;
+  width: 300px;
 }
 
 input[type="email"]:hover,
 input[type="password"]:hover,
 button:hover {
-  border-color: #7f6767
+  border-color: #7f6767;
 }
 
 input[type="email"]:focus,
@@ -195,7 +124,6 @@ button:focus {
   box-shadow: brown;
 }
 
-
 /* input[type="number"]
 input[type="date"]
 {
@@ -204,80 +132,125 @@ input[type="date"]
 
 } */
 
-
 .input-container-two {
-  display: flex;
-  flex-direction: column;
-  width: 500px;
-}
-
-.admin-username {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin-top: 8px;
-}
-
-.admin-password {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin-top: 8px;
-  border-radius: 6px;
-  padding: 6px;
-  font-size: 18px;
-}
-
-.admin-username {
-  display: flex;
-  flex-direction: column;
-  width: 400px;
-  margin-top: 8px;
-  border-radius: 6px;
-  padding: 6px;
-  font-size: 18px;
-}
-
-.admin-login {
-margin-top: 8px;
-
-}
-
-.title-one {
-  font-size: 60px;
+  display: grid;
+  width: 300px;
 }
 
 .title {
   font-size: 16px;
-  
 }
-
 
 button {
   cursor: pointer;
   border-radius: 4px;
-  color: gray;
+  color: rgb(66, 66, 66);
   text-transform: uppercase;
-  letter-spacing:.2em;
+  letter-spacing: 0.2em;
   border: none;
+  margin: 5px;
+  width: 80px;
+  justify-self: center;
 }
 
 a:hover {
-  color: #333
+  color: #333;
 }
 
 a {
+  color: aquamarine;
   font-size: large;
   text-decoration: none;
 }
 
+/* sofia*/
 li {
   list-style-type: none;
-
+  margin-bottom: 10px;
 }
 
 .icon {
   margin-right: 10px;
+}
+
+input {
+  border: 1px solid #3a0303;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  padding: 6px;
+  width: 300px;
+  font-size: 18px;
+}
+
+input:focus {
+  outline: none;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+h1 {
+  margin: 50px;
+  font-size: 40px;
+}
+
+.form {
+  display: grid;
+  justify-content: center;
+}
+
+.admin-header {
+  margin-bottom: 20px;
+}
+
+.signout {
+  justify-self: right;
+  margin-top: 10px;
+  width: 100px;
+}
+
+.container-user {
+  display: grid;
+  width: 100%;
+}
+
+.signout-header {
+  display: grid;
+  width: 1300px;
+}
+
+.msg-list {
+  display: grid;
+  justify-content: left;
+  font-size: large;
+  text-align: left;
+}
+
+#inbox-header {
+  margin-top: 70px;
+  margin-bottom: 30px;
+  text-decoration: underline;
+  letter-spacing: 0.2em;
+}
+
+.user-heading-text {
+  margin-bottom: 50px;
+  margin-block-start: 0em;
+}
+
+.admin-btns {
+  justify-self: right;
+  width: fit-content;
+}
+
+.admin-list {
+  margin-bottom: 30px;
+}
+
+.list-btn {
+  text-transform: none;
+  width: fit-content;
 }
 
 /* .input-container-one { */
@@ -376,100 +349,9 @@ textarea {
 /* .input-container-one label {
  margin-bottom: 5px;
 } */
-=======
-
-.input-container-one label {
-  margin-bottom: 5px;
-}
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
 
 /* .input-container input,
 
 .input-container textarea {
  margin-bottom: 10px;
-<<<<<<< HEAD
 } */
-=======
-} */
-
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 50vh;
-}
-
-.App {
-  text-align: center;
-  background-color: #54617b;
-  color: white;
-  font-size: 15px;
-}
-
-input[type="email"],
-input[type="password"] {
-  border: 1px solid #3a0303;
-  border-radius: 6px;
-  padding: 6px;
-  font-size: 18px;
-}
-
-input[type="email"]:hover,
-input[type="password"]:hover,
-button:hover {
-  border-color: #7f6767;
-}
-
-input[type="email"]:focus,
-input[type="password"]:focus,
-button:focus {
-  border-color: #333;
-  box-shadow: brown;
-}
-
-/* input[type="number"]
-input[type="date"]
-{
-  border: 1px solid black;
-  border-radius: 4px;
-
-} */
-
-.input-container-two {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-}
-
-.title {
-  font-size: 16px;
-}
-
-button {
-  cursor: pointer;
-  border-radius: 4px;
-  color: gray;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  border: none;
-  margin: 5px;
-}
-
-a:hover {
-  color: #333;
-}
-
-a {
-  font-size: large;
-  text-decoration: none;
-}
-
-li {
-  list-style-type: none;
-}
-
-.icon {
-  margin-right: 10px;
-}
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1

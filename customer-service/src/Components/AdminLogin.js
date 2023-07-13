@@ -94,35 +94,45 @@ function AdminLogin() {
 
   return (
     <div className="App">
-      <h1>Welcome, {username}!</h1>
->>>>>>> 493d4c0e72edb5d59896ce0639a3cacb16431fc1
-      <input
-        type="username"
-        placeholder="username"
-        onChange={(e) => {
-          setUsername(e.target.value);
-        }}
-      />
-      <input
-        type="password"
-        placeholder="password"
-        onChange={(e) => {
-          setPassword(e.target.value);
-        }}
-      />
-      <button
-        onClick={() => {
-          login();
-        }}
-      >
-        Login
-      </button>
+      <h1 className="admin-header">Customer Hub</h1>
+      <h2>Admin page</h2>
+      <h3>Welcome, {username}!</h3>
+      <div className="form">
+        <div className="input-container-one">
+          <label htmlFor="username">Username</label>
+          <input
+            type="username"
+            id="username"
+            placeholder="username"
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+        </div>
+        <div className="input-container-one">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+        </div>
+        <button
+          onClick={() => {
+            login();
+          }}
+        >
+          Login
+        </button>
+      </div>
     </div>
   );
 }
 
 export default AdminLogin;
-
 
 
 // import { useNavigate } from "react-router-dom";
